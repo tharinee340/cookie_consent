@@ -52,11 +52,36 @@ var cookieconsent = initCookieConsent();
   * cookieconsent.`showSettings(<optional_delay>)`
   * cookieconsent.`hideSettings()`
 
-Additional methods for an easier management of your scripts and cookie settings
+ 
+   #### Additional methods for an easier management of your scripts and cookie settings
 
 
   * cookieconsent.`accept(<accepted_categories>, <optional_rejected_categories>)`
   * cookieconsent.`allowedCategory(<category_name>)`
+
+      A cookie category corresponds to the string of the value property inside the toggle object:
+      ```js
+
+      // ...
+      toggle: {
+          value: 'analytics',     // cookie category
+          enabled: false,         // default status
+          readonly: false         // allow to enable/disable
+          // reload: 'on_disable',   // allows to reload page when the current cookie category is deselected
+      }
+      // ...
+      ```
+      
+      Example:
+      
+      ```js
+      
+      // Check if user accepts cookie consent with analytics category enabled
+      if (!cookieconsent.allowedCategory('analytics')) {
+          // yoo, you might want to load analytics.js ...
+      };
+
+      ```
   * cookieconsent.`validCookie(<cookie_name>)`
   * cookieconsent.`eraseCookies(<cookie_names>, <optional_path>, <optional_domains>)`
   * cookieconsent.`loadScript(<path>, <callback_function>, <optional_custom_attributes>)`
