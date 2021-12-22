@@ -71,6 +71,26 @@ The following functions have to be defined inside the configuration object passe
   * `onAccept`
   * `onChange`
   * `onFirstAction`
+
+```js
+
+  onFirstAction: function(user_preferences, cookie){
+      // callback triggered only once
+  },
+
+  onAccept: function (cookie) {
+      // ...
+      console.log(cookie)
+      console.log(cookie.level) //เช็คว่ากดยอมรับอะไรบ้าง ใน setting => toggle 
+
+  },
+
+  onChange: function (cookie, changed_preferences) {
+      // ...
+  },
+
+
+```
   
 ### All configuration options
 
